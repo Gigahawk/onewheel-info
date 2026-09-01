@@ -7,7 +7,7 @@ name: Visual regression
 # pixel-identical, and anything that is not is worth a human looking at.
 on:
   pull_request:
-    branches: ["master"]
+    branches: ["personal"]
     paths:
       - 'Gemfile'
       - 'Gemfile.lock'

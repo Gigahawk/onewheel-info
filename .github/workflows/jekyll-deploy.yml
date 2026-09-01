@@ -3,11 +3,11 @@ name: Deploy Jekyll site to GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["personal"]
 
   # Runs on pull requests targeting the default branch (build only, no deploy)
   pull_request:
-    branches: ["master"]
+    branches: ["personal"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -48,14 +48,14 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        # Only upload artifact for deployment on push to master
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        # Only upload artifact for deployment on push to personal
+        if: github.event_name == 'push' && github.ref == 'refs/heads/personal'
         uses: actions/upload-pages-artifact@v5
 
   # Deployment job
   deploy:
-    # Only deploy on push to master, not on pull requests
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    # Only deploy on push to personal, not on pull requests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/personal'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

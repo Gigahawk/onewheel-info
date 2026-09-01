@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 7 * * 1' # Every Monday at 7:00 UTC
   pull_request:
-    branches: ["master"]
+    branches: ["personal"]
   workflow_dispatch:
 
 jobs:
